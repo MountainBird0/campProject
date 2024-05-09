@@ -20,15 +20,10 @@ public class ChoiceSceneUIManager : MonoBehaviour
         }
     }
 
-
-
-
-
-
     public void ClickJoin()
     {
-        // 이름 받아서 게임매니저에서 씬 넘어가기
-        // 캐릭터 생성매니저에서 프리팹으로 된 캐릭터 생성
+        GameManager.instance.label = slot.characterName;
+        GameManager.instance.ChangeScene(1);
     }
 
 }

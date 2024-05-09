@@ -22,6 +22,7 @@ public class ChoiceSceneUIController : MonoBehaviour
     {
         ShowSelectCanvas();
 
+        joinButton.onClick.AddListener(ClickBTNJoin);
         nameField.onValueChanged.AddListener(delegate { CheckTextLength(); });
     }
 
@@ -42,10 +43,12 @@ public class ChoiceSceneUIController : MonoBehaviour
         ChoiceSceneUIManager.instance.slot = slot;
     }
 
-    public void ClickJoin()
+    public void ClickBTNJoin()
     {
         Debug.Log($"{GetType()} - {nameField.text}");
         Debug.Log($"{GetType()} - {nameField.text.Length}");
+
+        ChoiceSceneUIManager.instance.ClickJoin();
     }
 
     private void CheckTextLength()
