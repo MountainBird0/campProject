@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class ChoiceSceneUIManager : MonoBehaviour
 {
-    [Header("Canvas")]
-    public GameObject selectCanvas;
-    public GameObject joinCanvas;
-
-    [HideInInspector] public ChoiceSceneUIController uiController;
+    public CharacterSlot slot;
 
     public static ChoiceSceneUIManager instance;
     private void Awake()
@@ -22,15 +18,8 @@ public class ChoiceSceneUIManager : MonoBehaviour
             Debug.LogWarning("Destroy");
             Destroy(gameObject);
         }
-
-        uiController = GetComponent<ChoiceSceneUIController>();
     }
 
-
-    private void Start()
-    {
-        selectCanvas.SetActive(true);
-    }
 
 
 

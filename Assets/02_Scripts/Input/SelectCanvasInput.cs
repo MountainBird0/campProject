@@ -5,16 +5,11 @@ using UnityEngine.UI;
 
 public class SelectCanvasInput : UIInput
 {
-    private ChoiceSceneUIController uIController;
+    public ChoiceSceneUIController uIController;
 
     private void Awake()
     {
         raycaster = GetComponent<GraphicRaycaster>();
-    }
-
-    private void Start()
-    {
-        uIController = ChoiceSceneUIManager.instance.uiController;
     }
 
     protected override void Press(Vector2 screenPosition, float time)
@@ -26,14 +21,11 @@ public class SelectCanvasInput : UIInput
             var ob = clickResults[0].gameObject;
             if(ob.CompareTag("SelectSlot"))
             {
-                var info = ob.GetComponent<CharacterSlot>();
-                string label = info.characterName;
-                Debug.Log($"{GetType()} - 누른거 종류 {label}");
+                var slot = ob.GetComponent<CharacterSlot>();
+                uIController.ShowJoinCanvas(slot);
             }
         }
-
     }
-
 }
 
 
