@@ -13,11 +13,6 @@ public class ChoiceSceneUIManager : MonoBehaviour
         {
             instance = this;
         }
-        else
-        {
-            Debug.LogWarning("Destroy");
-            Destroy(gameObject);
-        }
     }
 
     public void ClickJoin()
