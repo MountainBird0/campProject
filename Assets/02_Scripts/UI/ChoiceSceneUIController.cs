@@ -45,10 +45,7 @@ public class ChoiceSceneUIController : MonoBehaviour
 
     public void ClickBTNJoin()
     {
-        Debug.Log($"{GetType()} - {nameField.text}");
-        Debug.Log($"{GetType()} - {nameField.text.Length}");
-
-        ChoiceSceneUIManager.instance.ClickJoin();
+        ChoiceSceneUIManager.instance.ClickJoin(nameField.text);
     }
 
     private void CheckTextLength()

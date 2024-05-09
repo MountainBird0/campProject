@@ -14,7 +14,7 @@ public class TopDownController : MonoBehaviour
     }
 
     public void CallLookEvent(Vector2 direction)
-    {
+    {        
         OnLookEvent.Invoke(direction);
     }
 }

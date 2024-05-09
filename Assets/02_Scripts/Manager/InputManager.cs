@@ -27,6 +27,11 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        if (!Mouse.current.enabled)
+        {
+            InputSystem.EnableDevice(Mouse.current);
+        }
     }
 
     private void OnEnable()

@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterAnimationController : MonoBehaviour
+public class CharacterAnimationController : AnimationController
 {
-    // Start is called before the first frame update
-    void Start()
+    private static readonly int IsWalking = Animator.StringToHash("IsMove");
+    private readonly float magnituteThreshold = 0.5f;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        controller.OnMoveEvent += Move;
+    }
+
+    private void Move(Vector2 obj)
+    {
+        animator.SetBool(IsWalking, obj.magnitude > magnituteThreshold);
     }
 }

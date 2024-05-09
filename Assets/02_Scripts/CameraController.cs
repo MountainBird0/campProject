@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 15.0f;
     public GameObject target;
     private Vector3 movePos;
 
@@ -15,7 +15,14 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        movePos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
-        this.transform.position = Vector3.Lerp(this.transform.position, movePos, speed * Time.deltaTime);
+        if(target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+        else
+        {
+            movePos = new Vector3(target.transform.position.x, target.transform.position.y, -10);
+            this.transform.position = Vector3.Lerp(this.transform.position, movePos, speed * Time.deltaTime);
+        }
     }
 }
