@@ -17,14 +17,11 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void Start()
     {
-        // 마우스의 위치가 들어오는 OnLookEvent에 등록하는 것
-        // 마우스의 위치를 받아서 팔을 돌리는 데 활용할 것임.
         controller.OnLookEvent += OnAim;
     }
 
     private void OnAim(Vector2 newAimDirection)
     {
-        Debug.Log("들어가는중");
         RotateArm(newAimDirection);
     }
 
