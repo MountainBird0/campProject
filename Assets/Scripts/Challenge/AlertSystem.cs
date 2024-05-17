@@ -14,7 +14,9 @@ public class AlertSystem : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
         // FOV를 라디안으로 변환하고 코사인 값을 계산
+        alertThreshold = Mathf.Cos((fov / 2) * Mathf.Deg2Rad);
     }
 
     private void Update()
@@ -25,5 +27,23 @@ public class AlertSystem : MonoBehaviour
     private void CheckAlert()
     {
         // 주변 반경의 소행성들을 확인하고 이를 감지하여 Alert를 발생시킴(isBlinking -> true)
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, radius);
+        bool isDetect = false;
+
+        foreach (var col in hitColliders)
+        {         
+            Vector2 direction = (col.transform.position - transform.position).normalized;
+            Vector2 forward = transform.up;
+
+            float dotProduct = Vector2.Dot(forward, direction);
+
+            if (dotProduct > alertThreshold)
+            {
+                isDetect = true;
+                break;
+            }           
+        }
+
+        animator.SetBool(blinking, isDetect);       
     }
 }

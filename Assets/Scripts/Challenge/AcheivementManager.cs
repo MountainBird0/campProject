@@ -7,9 +7,7 @@ public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager Instance;
 
-    private int currentThresholdIndex;
-
-    private bool isChecking = false;
+    private int currentThresholdIndex = 100;
 
     [SerializeField] private AchievementSO[] achievements;
     [SerializeField] private AchievementView achievementView;
@@ -29,6 +27,11 @@ public class AchievementManager : MonoBehaviour
     private void CheckAchievement(float height)
     {
         Debug.Log($"높이 - {height}");
+        if(height >= currentThresholdIndex)
+        {
+            achievementView.UnlockAchievement(currentThresholdIndex);
+            currentThresholdIndex += 100;
+        }
     }
 
 
