@@ -1,0 +1,34 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Challenge",
+            "id": "e4ddcdb3-a888-4999-822b-10fbd38d034a",
+            "actions": [
+                {
+                    "name": "Space",
+                    "type": "Button",
+                    "id": "569442d5-7de1-4650-9da6-17de2c07ac3a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "beb480e0-9f54-42f7-a6a4-51223c733e0b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
